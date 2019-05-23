@@ -14,11 +14,10 @@ const number_util= require('prose_number');
 // See prose_isit for a method to determine if a var is a number.
 // inclusive defaults to false, if set and not a boolean an error is thrown.
 
-// If min is nil and max is not, returns true if number less than min (or equal depending on inclusive).
-
 // Returns true if number is between min and max (inclusive depending on the value of that paramater).
 // If both min and max are nil then error is thrown.
 // If min or max are set to something other than nill or a number an error is thrown.
+// If min is nil and max is not, returns true if number less than min (or equal depending on inclusive).
 number_util.between(anumber, min, max, inclusive);
 
 // The inverse of the above between method.
