@@ -1,8 +1,9 @@
 # Prose/Number
 
-Make writing node easier, prettier and less error prone. Writes and reads more like prose
+Copyright (c) 2019 Seán D. Murray
+SEE MIT LICENSE FILE
 
-A utility to manipulate numbers.
+A number Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose.
 
 ## Usage
 

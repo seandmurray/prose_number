@@ -1,14 +1,14 @@
 {
   "name": "prose_number",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A number Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose",
   "license": "MIT",
   "main": "index.js",
   "keywords": [
+    "number",
     "core",
     "easy",
     "lodash",
-    "number",
     "pretty",
     "prose",
     "short",
