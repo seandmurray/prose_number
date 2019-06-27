@@ -71,6 +71,7 @@ assert.equal(number_util.cast("12"), 12, 'valid number');
 assert.equal(number_util.cast("10,000"), 10000, 'valid number');
 assert.equal(number_util.cast("100-*&^00"), 10000, 'valid number');
 assert.equal(number_util.cast("10,000.00", /[,]/), 10000, 'valid number');
+console.log('cast testing success');
 
 // greaterthan
 assert.throws( function() { number_util.greaterthan(); }, Error, 'Expected an exception!');
