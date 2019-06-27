@@ -59,6 +59,19 @@ assert.equal(number_util.notBetween(5, 5), true, 'Number is not greater than min
 assert.equal(number_util.notBetween(5, 5, null, true), false, 'Number is greater than min, inclusive');
 console.log('notBetween testing success');
 
+// cast
+assert.equal(number_util.cast(), undefined, 'invalid number');
+assert.equal(number_util.cast(null), undefined, 'invalid number');
+assert.equal(number_util.cast('not a number'), undefined, 'invalid number');
+assert.equal(number_util.cast({"one":"two"}), undefined, 'invalid number');
+assert.equal(number_util.cast(''), undefined, 'invalid number');
+assert.equal(number_util.cast('$%()&'), undefined, 'invalid number');
+assert.equal(number_util.cast(5), 5, 'valid number');
+assert.equal(number_util.cast("12"), 12, 'valid number');
+assert.equal(number_util.cast("10,000"), 10000, 'valid number');
+assert.equal(number_util.cast("100-*&^00"), 10000, 'valid number');
+assert.equal(number_util.cast("10,000.00", /[,]/), 10000, 'valid number');
+
 // greaterthan
 assert.throws( function() { number_util.greaterthan(); }, Error, 'Expected an exception!');
 assert.throws( function() { number_util.greaterthan('a'); }, Error, 'Expected an exception!');

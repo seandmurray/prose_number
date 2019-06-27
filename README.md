@@ -21,6 +21,17 @@ const number_util= require('prose_number');
 // If min is nil and max is not, returns true if number less than min (or equal depending on inclusive).
 number_util.between(anumber, min, max, inclusive);
 
+// Cast a non number into a number.
+// This will return a value only for number or strings that can be converted to numbers.
+// Input a number and a number is returned.
+// Input a string like "10" and 10 is returned.
+// Input a string like "10,000" and 10000 is returned.
+// By default any non number values are striped from the string.
+// So '10-*&^0' returns 100.
+// You may change what characters are stripped by setting last argument with a regular expression.
+// So cast("10,000", /[,]/g) will return 10000
+number_util.cast(number, regex);
+
 // The inverse of the above between method.
 number_util.notBetween(number, min, max, inclusive)
 

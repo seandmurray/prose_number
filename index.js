@@ -3,6 +3,9 @@
 // SEE MIT LICENSE FILE
 const isit = require('prose_isit');
 
+const NOT_A_NUMBER_REGEX = /[^\d]+/g;
+const NOT_A_NUMBER_CODE = 'NaN'
+
 exports.between = (number, min, max, inclusive = false) => {
 	if (isit.notNumber(number)) throw new Error('A valid number is required?');
 	if (isit.notBoolean(inclusive)) throw new Error('Inclusive must be a valid boolean value?');
@@ -30,6 +33,19 @@ exports.between = (number, min, max, inclusive = false) => {
 		return false;
 	}
 	throw new Error('Min and max can be: both valid numbers, number and nil or nil and a number.');
+};
+
+exports.cast = (possibleNumber, regex=NOT_A_NUMBER_REGEX) => {
+	if(isit.nil(possibleNumber)) return undefined;
+	if(isit.aNumber(possibleNumber)) return possibleNumber;
+	if(isit.aString(possibleNumber)) {
+		const str = possibleNumber.trim().replace(regex, '');
+		if(str.length < 1) return undefined;
+		const num = Number(str);
+		if (NOT_A_NUMBER_CODE === num) return undefined;
+		return num;
+	}
+	return undefined;
 };
 
 exports.notBetween = (number, min, max, inclusive = false) => {
