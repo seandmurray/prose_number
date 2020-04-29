@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 // Copyright (c) 2019 Seán D. Murray
 // SEE MIT LICENSE FILE
+const is = require('prose_is');
 const isit = require('prose_isit');
 
 const NOT_A_NUMBER_REGEX = /[^\d]+/g;
@@ -20,13 +21,13 @@ exports.between = (number, min, max, inclusive = false) => {
 		}
 		return false;
 	}
-	else if (isit.aNumber(min) && isit.nil(max)) {
+	else if (isit.aNumber(min) && is.nil(max)) {
 		if (min < number) {
 			return true;
 		}
 		return false;
 	}
-	else if (isit.nil(min) && isit.aNumber(max)) {
+	else if (is.nil(min) && isit.aNumber(max)) {
 		if (max > number) {
 			return true;
 		}
@@ -36,7 +37,7 @@ exports.between = (number, min, max, inclusive = false) => {
 };
 
 exports.cast = (possibleNumber, regex=NOT_A_NUMBER_REGEX) => {
-	if(isit.nil(possibleNumber)) return undefined;
+	if(is.nil(possibleNumber)) return undefined;
 	if(isit.aNumber(possibleNumber)) return possibleNumber;
 	if(isit.aString(possibleNumber)) {
 		const str = possibleNumber.trim().replace(regex, '');

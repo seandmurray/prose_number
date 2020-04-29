@@ -1,4 +1,4 @@
-# Prose/Number
+# prose_number
 
 Copyright (c) 2019 Seán D. Murray
 SEE MIT LICENSE FILE
