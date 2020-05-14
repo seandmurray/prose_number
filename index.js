@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-// Copyright (c) 2019 Seán D. Murray
+// Copyright (c) 2020 Seán D. Murray
 // SEE MIT LICENSE FILE
 const is = require('prose_is');
 const isit = require('prose_isit');
